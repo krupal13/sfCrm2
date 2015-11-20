@@ -16,3 +16,7 @@ hwi_oauth_login:
 agreement_show:
     path:      /{slug}
     defaults:  { _controller: AppBundle:Agreement:show }
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
