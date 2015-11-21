@@ -18,3 +18,9 @@ services:
         class: AppBundle\Validator\Constraints\PeselValidator
         tags:
             - { name: validator.constraint_validator, alias: validator_pesel }
+    
+    locale_listener:
+        class: AppBundle\EventListener\LocaleListener
+        arguments: ["%kernel.default_locale%"]
+        tags:
+            - { name: kernel.event_subscriber}

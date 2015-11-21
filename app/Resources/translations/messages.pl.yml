@@ -1,0 +1,6 @@
+save: Zapisz
+
+client:
+    add_title: Dodawanie nowego klienta
+    firstName: Imię
+    lastName: Nazwisko

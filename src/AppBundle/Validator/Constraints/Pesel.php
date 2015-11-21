@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraint;
  */
 class Pesel extends Constraint
 {
-    public $message = 'Nieprawidłowy PESEL';
+    public $message = 'pesel';
     
     public function validatedBy()
     {

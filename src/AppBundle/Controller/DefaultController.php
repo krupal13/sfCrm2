@@ -17,6 +17,10 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ));
+        
+//        opcja w translacji controllera np do flash add
+//        $trans = $this->get('translations');
+//        $trans->trans();
     }
     
     /**
@@ -37,5 +41,18 @@ class DefaultController extends Controller
         $response->setContent($filesystem->read($filename));
         
         return $response;
+    }
+    
+    /**
+     * @Route("/set-locale/{locale}", name="set_locale")
+     */
+    public function setLocaleAction($locale, Request $request)
+    {
+        $session = $request->getSession();
+        
+        $session->set('_locale', $locale);
+        
+        return $this->redirectToRoute('homepage');
+        
     }
 }

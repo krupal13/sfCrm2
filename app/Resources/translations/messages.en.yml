@@ -1,0 +1,6 @@
+save: Save
+
+client:
+    add_title: Add new client
+    firstName: First Name
+    lastName: Last Name

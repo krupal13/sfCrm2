@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    
+    <h4>{{ 'client.add_title'|trans() }}</h4>
+    
     {{ form_start(form) }}
         
     
-        <button type="submit" class="btn btn-primary">Zapisz</button>
+        <button type="submit" class="btn btn-primary">{{ 'save'|trans() }}</button>
     
     {{ form_end(form) }}
 {% endblock %}
