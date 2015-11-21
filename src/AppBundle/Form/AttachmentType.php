@@ -16,10 +16,10 @@ class AttachmentType extends AbstractType
     {
         $builder
             ->add('file', 'file', [
-                'label' => 'Plik',
+                'label' => 'attachment.file',
             ])
             ->add('description', null, [
-                'label' => 'Opis pliku',
+                'label' => 'attachment.fileDescription',
             ])
         ;
     }

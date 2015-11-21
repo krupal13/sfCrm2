@@ -20,10 +20,10 @@ class UserDetailsClientType extends AbstractType
                 'label' => 'client.firstName',
             ])
             ->add('lastName', 'text', [
-                'label' => 'Nazwisko',
+                'label' => 'client.lastName',
             ])
             ->add('pesel', 'text', [
-                'label' => 'Nr PESEL',
+                'label' => 'client.peselNumber',
                 'constraints' => [
                     new Pesel(),
                 ]

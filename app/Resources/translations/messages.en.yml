@@ -5,3 +5,21 @@ client:
     firstName: First Name
     lastName: Last Name
     peselNumber: PESEL number
+agreement:
+    add_title: Add new agreement
+    agrValue: Agreement value
+    insuredClient: Insured client
+    client: Client
+    attachment: Attachment
+    agent: Agent
+attachment:
+    file: File
+    fileDescription: File description
+login:
+    login_title: Sign in to start your session
+    checkbox: Remember Me
+    submit: Sign In
+    or: OR
+    facebook: Sign in using Facebook
+    pass: I forgot my password
+    register: Register a new membership

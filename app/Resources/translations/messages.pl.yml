@@ -5,3 +5,21 @@ client:
     firstName: Imię
     lastName: Nazwisko
     peselNumber: Nr PESEL
+agreement:
+    add_title: Dodawanie nowej umowy
+    agrValue: Wartość umowy
+    insuredClient: Osoba do ubezpieczenia
+    client: Klient
+    attachment: Załącznik
+    agent: Agent
+attachment:
+    file: Plik
+    fileDescription: Opis pliku
+login:
+    login_title: Zaloguj się, aby rozpocząć sesję
+    checkbox: Zapamiętaj mnie
+    submit: Zaloguj
+    or: LUB
+    facebook: Zaloguj przez facebooka
+    pass: Zapomniałem hasła
+    register: Zarejestruj nowego użytkownika

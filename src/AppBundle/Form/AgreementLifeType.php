@@ -28,14 +28,14 @@ class AgreementLifeType extends AbstractType
     {
         $builder
             ->add('value', null, [
-                'label' => 'Wartość umowy',
+                'label' => 'agreement.agrValue',
             ])
             ->add('person', null, [
-                'label' => 'Osoba do ubezpieczenia',
+                'label' => 'agreement.insuredClient',
             ])
             
             ->add('client', 'entity', [
-                'label' => 'Klient',
+                'label' => 'agreement.client',
                 'class' => 'AppBundle\Entity\UserDetailsClient',
                 'property' => 'fullName',
                 'query_builder' => function(EntityRepository $er) {
@@ -45,7 +45,7 @@ class AgreementLifeType extends AbstractType
             ])
             
             ->add('attachments', 'collection', [
-                'label' => 'Załącznik',
+                'label' => 'agreement.attachment',
                 'type' => new AttachmentType(),
             ])
         ;
@@ -53,7 +53,7 @@ class AgreementLifeType extends AbstractType
         if ($this->user->hasRole('ROLE_MANAGER')) {
             $builder
                 ->add('agent', 'entity', [
-                    'label' => 'Agent',
+                    'label' => 'agreement.agent',
                     'class' => 'AppBundle\Entity\UserDetailsAgent',
                     'property' => 'fullName',
                     'query_builder' => function(EntityRepository $er) {
