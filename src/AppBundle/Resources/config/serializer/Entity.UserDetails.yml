@@ -1,0 +1,10 @@
+AppBundle\Entity\UserDetailsClient:
+    exclusion_policy: ALL
+    properties:
+        firstName:
+            expose: true
+        lastName:
+            expose: true
+        createdAt:
+            expose: true
+            type: DateTime

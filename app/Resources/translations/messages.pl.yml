@@ -4,3 +4,4 @@ client:
     add_title: Dodawanie nowego klienta
     firstName: Imię
     lastName: Nazwisko
+    peselNumber: Nr PESEL

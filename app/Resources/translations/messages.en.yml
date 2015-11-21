@@ -4,3 +4,4 @@ client:
     add_title: Add new client
     firstName: First Name
     lastName: Last Name
+    peselNumber: PESEL number
