@@ -1,6 +1,8 @@
-AppBundle\Entity\UserDetailsClient:
+AppBundle\Entity\UserDetails:
     exclusion_policy: ALL
     properties:
+        id:
+            expose: true
         firstName:
             expose: true
         lastName:

@@ -5,7 +5,6 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Validator\Constraints\Pesel;
 
 class UserDetailsClientType extends AbstractType
@@ -21,15 +20,15 @@ class UserDetailsClientType extends AbstractType
                 'label' => 'client.firstName',
             ])
             ->add('lastName', 'text', [
-                'label' => 'client.lastName',
+                'label' => 'Nazwisko',
             ])
             ->add('pesel', 'text', [
-                'label' => 'client.peselNumber',
+                'label' => 'Nr PESEL',
                 'constraints' => [
                     new Pesel(),
                 ]
             ])
-        ;
+        ;        
     }
     
     /**
@@ -38,7 +37,7 @@ class UserDetailsClientType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\UserDetailsClient'
+            'data_class' => 'AppBundle\Entity\UserDetailsClient',
         ));
     }
 
@@ -47,6 +46,6 @@ class UserDetailsClientType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_userdetailsclient';
+        return 'client';
     }
 }

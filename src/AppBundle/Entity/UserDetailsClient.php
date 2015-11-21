@@ -11,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
 class UserDetailsClient extends UserDetails
 {
     /**
+     * Numer pesel
+     * 
      * @var string
      *
      * @ORM\Column(name="pesel", type="string", length=11)
