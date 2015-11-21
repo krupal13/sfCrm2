@@ -63,6 +63,7 @@ class LoadUserClientData extends AbstractFixture implements OrderedFixtureInterf
             $newUserDetails->setPesel($faker->pesel);
             
             $newUser->setDetails($newUserDetails);
+            $newUserDetails->setUser($newUser);
             $userManager->updateUser($newUser);
             
             self::$users[] = $newUser;

@@ -64,6 +64,7 @@ class LoadUserManagerData extends AbstractFixture implements OrderedFixtureInter
             $newUserDetails->setArea($faker->numberBetween(0, 3));
                         
             $newUser->setDetails($newUserDetails);
+            $newUserDetails->setUser($newUser);
             $userManager->updateUser($newUser);
             
             self::$users[] = $newUser;

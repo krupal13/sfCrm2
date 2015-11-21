@@ -7,12 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Alert
  *
- * @ORM\Table()
+ * @ORM\Table(name="alert")
  * @ORM\Entity
  */
 class Alert
 {
-    //use Traits\Timestampable;
+    //use Traits\TimestampableTrait;
     
     /**
      * @var integer
@@ -45,7 +45,7 @@ class Alert
     private $isRead;
     
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="alerts")
+     * @ORM\ManyToOne(targetEntity="UserDetails", inversedBy="alerts")
      */
     private $user;
 
@@ -135,11 +135,11 @@ class Alert
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param \AppBundle\Entity\UserDetails $user
      *
      * @return Alert
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser(\AppBundle\Entity\UserDetails $user = null)
     {
         $this->user = $user;
 
@@ -149,7 +149,7 @@ class Alert
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\User
+     * @return \AppBundle\Entity\UserDetails
      */
     public function getUser()
     {

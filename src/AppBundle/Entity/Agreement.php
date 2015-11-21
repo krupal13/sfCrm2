@@ -19,6 +19,10 @@ abstract class Agreement
 {
     use Traits\TimestampableTrait;
     
+    const AGR_TYPE_LIFE = 'life';
+    const AGR_TYPE_ESTATE = 'estate';
+    const AGR_TYPE_VEHICLE = 'vehicle';
+    
     /**
      * @var integer
      *
@@ -67,6 +71,13 @@ abstract class Agreement
      */
     private $attachments;
 
+    public static function getTypes()
+    {
+        return [
+            self::AGR_TYPE_LIFE, self::AGR_TYPE_ESTATE, self::AGR_TYPE_VEHICLE
+        ];
+    }
+    
     /**
      * Get id
      *

@@ -66,6 +66,7 @@ class LoadUserAgentData extends AbstractFixture implements OrderedFixtureInterfa
             );
             
             $newUser->setDetails($newUserDetails);
+            $newUserDetails->setUser($newUser);
             $userManager->updateUser($newUser);
             
             self::$users[] = $newUser;
