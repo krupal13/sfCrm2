@@ -13,3 +13,8 @@ services:
     user.provider:
         class: AppBundle\Security\FOSUserProvider
         arguments: [@fos_user.user_manager, {facebook: facebookId}]
+        
+    validator.pesel:
+        class: AppBundle\Validator\Constraints\PeselValidator
+        tags:
+            - { name: validator.constraint_validator, alias: validator_pesel }
