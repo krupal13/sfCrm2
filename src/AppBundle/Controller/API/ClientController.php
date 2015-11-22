@@ -31,7 +31,12 @@ class ClientController extends APIController implements ClassResourceInterface
      * @return array
      */
     public function cgetAction()
-    {        
+    {
+        $user = $this->getUser();
+        if (!$user) {
+            return $this->response('Brak dostępu', 403);
+        }
+        
         $clients = $this->getDoctrine()
             ->getRepository('AppBundle:UserDetailsClient')
             ->findAll();

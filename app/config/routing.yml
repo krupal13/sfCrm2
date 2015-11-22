@@ -2,6 +2,12 @@ api_client:
     prefix: /api/v1
     type: rest
     resource: AppBundle\Controller\API\ClientController
+    
+api_auth:
+    prefix: /api/v1
+    type: rest
+    resource: AppBundle\Controller\API\ClientController
+    methods: [POST]
 
 app:
     resource: "@AppBundle/Controller/"

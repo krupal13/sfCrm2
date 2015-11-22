@@ -1,4 +1,17 @@
 save: Zapisz
+show: Pokaż
+blank_page: Pusta strona
+descript: wszystko zaczyna się tutaj
+page: Witaj
+
+menu:
+    Lista umów: Lista umów
+    Umowy na życie: Umowy na życie
+    Nowa umowa: Nowa umowa
+    Umowy na życie: Umowy na życie
+    Lista agentów: Lista agentów
+    Dodaj klienta: Dodaj klienta
+    Wyloguj: Wyloguj
 
 client:
     add_title: Dodawanie nowego klienta
@@ -23,3 +36,11 @@ login:
     facebook: Zaloguj przez facebooka
     pass: Zapomniałem hasła
     register: Zarejestruj nowego użytkownika
+agent_list:
+    prowizja: Prowizja
+life_agreement:
+    agreeNr: Numer umowy
+    number: Numer
+    date: Data utworzenia
+    value: Wartość umowy
+    action: Akcje

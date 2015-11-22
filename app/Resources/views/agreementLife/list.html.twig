@@ -6,11 +6,11 @@
         <table class="table table-hover">
             <tr>
                 <th>ID</th>
-                <th>Numer</th>
-                <th>Data utworzenia</th>
+                <th>{{ 'life_agreement.number'|trans() }}</th>
+                <th>{{ 'life_agreement.date'|trans() }}</th>
                 <th>Agent</th>
-                <th>Wartość umowy</th>
-                <th>Akcje</th>
+                <th>{{ 'life_agreement.value'|trans() }}</th>
+                <th>{{ 'life_agreement.action'|trans() }}</th>
             </tr>
             
             {% for agreement in agreements %}
@@ -20,7 +20,7 @@
                     <td>{{ agreement.createdAt|date('d-m-Y') }}</td>
                     <td>{{ agreement.agent.fullName }}</td>
                     <td>{{ agreement.value|number_format(2, ',', ' ') }}</td>
-                    <td><a href="{{ path('agreement_show', {'slug': agreement.slug }) }}" class="btn btn-danger">Pokaż</a></td>
+                    <td><a href="{{ path('agreement_show', {'slug': agreement.slug }) }}" class="btn btn-danger">{{ 'show'|trans() }}</a></td>
                 </tr>                
             {% endfor %}
         </table>

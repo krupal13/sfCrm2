@@ -2,7 +2,7 @@
 
 {% block body %}
     
-    <h2>Numer umowy: {{ agreement.number}}</h2>
+    <h2>{{ 'life_agreement.agreeNr'|trans() }}: {{ agreement.number}}</h2>
     
     <ul>
     {% for attachment in agreement.attachments %}

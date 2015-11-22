@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CRM</title>
+    <title>Customer Relationship Management</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
@@ -37,7 +37,7 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a href="../../index2.html" class="logo">
+        <a href="{{ path('homepage') }}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
@@ -45,13 +45,13 @@
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
-          <!-- Sidebar toggle button-->
+          <!-- Sidebar toggle button
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </a>
+          </a>-->
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <!-- Messages: style can be found in dropdown.less-->
@@ -167,15 +167,16 @@
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
               </li>
-              <!-- Control Sidebar Toggle Button -->
+              <!-- Control Sidebar Toggle Button 
               <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
               </li>
+              -->
             </ul>
           </div>
         </nav>
@@ -197,7 +198,7 @@
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
-          <!-- search form -->
+          <!-- search form 
           <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
               <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -206,6 +207,7 @@
               </span>
             </div>
           </form>
+          -->
           
           <a href='{{ path('set_locale', {'locale': 'pl'} ) }}'>PL</a>
           <a href='{{ path('set_locale', {'locale': 'en'} ) }}'>EN</a>
@@ -265,14 +267,16 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Blank page
-            <small>it all starts here</small>
+            <h4>{{ 'blank_page'|trans() }}</h4>
+            <small>{{ 'descript'|trans() }}</small>
           </h1>
+            <!--
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Examples</a></li>
             <li class="active">Blank page</li>
           </ol>
+            -->
         </section>
 
         <!-- Main content -->

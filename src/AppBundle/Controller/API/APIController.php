@@ -11,6 +11,22 @@ use Symfony\Component\Form\Form;
  */
 class APIController extends FOSRestController
 {
+    public function getUser()
+    {      
+       $request = $this->get('request_stack')->getCurrentRequest();
+       
+       $apiKey = $request->headers->get('api_key', 'somedoesntexistapikey');
+       
+       $user = $this->getDoctrine()->getManager()
+               ->getRepository('AppBundle:User')
+               -findOneBy([
+                   'apiKey' => $apiKey,
+               ]);
+               
+               return $user;
+        
+    }
+    
     public function response($message, $code = 400, $additionalData = null)
     {
         if ($additionalData instanceof Form) {

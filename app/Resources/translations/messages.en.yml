@@ -1,4 +1,17 @@
 save: Save
+show: Show
+blank_page: Blank page
+descript: it all starts here
+page: Hello
+
+menu:
+    Lista umów: Agreement list
+    Umowy na życie: Life agreement
+    Nowa umowa: New agreement
+    Umowy na życie: Life agreement
+    Lista agentów: Agent list
+    Dodaj klienta: Client list
+    Wyloguj: Logout
 
 client:
     add_title: Add new client
@@ -23,3 +36,11 @@ login:
     facebook: Sign in using Facebook
     pass: I forgot my password
     register: Register a new membership
+agent_list:
+    prowizja: Commission
+life_agreement:
+    agreeNr: Agreement number
+    number: Number
+    date: Created at
+    value: Agreement value
+    action: Action

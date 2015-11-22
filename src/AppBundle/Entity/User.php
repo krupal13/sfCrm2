@@ -39,7 +39,10 @@ class User extends BaseUser
      */
     protected $facebookAccessToken;
     
-    
+    /**
+     * @ORM\Column(name="api_key", type="string")
+     */
+    protected $apiKey;
     
     public function __construct()
     {
@@ -128,5 +131,29 @@ class User extends BaseUser
     public function getFacebookAccessToken()
     {
         return $this->facebookAccessToken;
+    }
+
+    /**
+     * Set apiKey
+     *
+     * @param string $apiKey
+     *
+     * @return User
+     */
+    public function setApiKey($apiKey)
+    {
+        $this->apiKey = $apiKey;
+
+        return $this;
+    }
+
+    /**
+     * Get apiKey
+     *
+     * @return string
+     */
+    public function getApiKey()
+    {
+        return $this->apiKey;
     }
 }

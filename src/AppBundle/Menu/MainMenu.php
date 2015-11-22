@@ -28,22 +28,22 @@ class MainMenu extends ContainerAware {
         ]);
 
         $menu->addChild('agreement_list', [
-            'label' => $trans->trans('Lista umów'),
+            'label' => $trans->trans('menu.Lista umów'),
         ]);
         $menu['agreement_list']->addChild(
                 'Umowy na życie', [
             'route' => 'agreememt_life_list',
-          'label' => $trans->trans('Umowy na życie')
+          'label' => $trans->trans('menu.Umowy na życie')
                 ]
         );
         //...
         $menu->addChild('agreement_add', [
-            'label' => $trans->trans('Nowa umowa'),
+            'label' => $trans->trans('menu.Nowa umowa'),
         ]);
         $menu['agreement_add']->addChild(
                 'Umowy na życie', [
             'route' => 'agreememt_life_add',
-            'label' => $trans->trans('Umowy na życie'),
+            'label' => $trans->trans('menu.Umowy na życie'),
                 ]
         );
         //...
@@ -51,16 +51,22 @@ class MainMenu extends ContainerAware {
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_MANAGER')) {
             $menu->addChild('Lista agentów', [
                 'route' => 'agents_list',
-                'label' => $trans->trans('Lista agentów')
+                'label' => $trans->trans('menu.Lista agentów'),
             ]);
         }
 
         if ($this->container->get('security.authorization_checker')->isGranted('ROLE_MANAGER')) {
             $menu->addChild('Dodaj klienta', [
                 'route' => 'client_add',
-                'label' => $trans->trans('Dodaj klienta'),
+                'label' => $trans->trans('menu.Dodaj klienta'),
             ]);
         }
+        
+        $menu->addChild('logout', [
+            'route' => 'fos_user_security_logout',
+            'label' => $trans->trans('menu.Wyloguj'),
+        ]);
+        
             return $menu;
         }
     }
