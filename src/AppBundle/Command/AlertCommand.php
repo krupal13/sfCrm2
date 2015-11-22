@@ -24,7 +24,7 @@ class AlertCommand extends ContainerAwareCommand
             ->setDescription('Send notification')
             ->addArgument(
                 'agreement',
-                InputArgument::OPTIONAL,
+                InputArgument::REQUIRED,
                 null
             )
         ;

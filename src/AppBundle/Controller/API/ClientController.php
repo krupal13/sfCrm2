@@ -2,18 +2,19 @@
 
 namespace AppBundle\Controller\API;
 
-use FOS\RestBundle\Controller\FOSRestController;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use FOS\RestBundle\Routing\ClassResourceInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\UserDetailsClientType;
 use AppBundle\Entity\UserDetailsClient;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Form\Form;
 
 /**
  * Class ClientController
  */
-class ClientController extends FOSRestController implements ClassResourceInterface
+class ClientController extends APIController implements ClassResourceInterface
 {
     /**
      * @ApiDoc(
@@ -64,7 +65,7 @@ class ClientController extends FOSRestController implements ClassResourceInterfa
             ]);
         
         if (!$client) {
-            throw new NotFoundHttpException();
+            return $this->response('Klient o zadanym ID nie istnieje', 404);
         }
 
         $view = $this->view($client, 200);
@@ -91,11 +92,13 @@ class ClientController extends FOSRestController implements ClassResourceInterfa
     public function postAction(Request $request)
     {
         $client = new UserDetailsClient();
-        $form = $this->createForm(new UserDetailsClientType(), $client);
+        $form = $this->createForm(new UserDetailsClientType(), $client, [
+            'csrf_protection' => false,
+        ]);
         
         $form->handleRequest($request);
         
-        //if ($form->isValid()) {
+        if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($client);
             $em->flush();
@@ -103,9 +106,9 @@ class ClientController extends FOSRestController implements ClassResourceInterfa
             $view = $this->view($client, 201);
 
             return $this->handleView($view);
-        //}
+        }
         
-        throw new \Exception('form error', 400);
+        return $this->response('Błędne dane z formularza', 400, $form);
     }
     
     /**
@@ -134,7 +137,15 @@ class ClientController extends FOSRestController implements ClassResourceInterfa
             ]);
         
         if (!$client) {
-            throw new NotFoundHttpException();
+            return new JsonResponse([
+                'message' => 'Klient o zadanym ID nie istnieje',
+            ], 404);
+        }
+        
+        if (!$request->request->get('firstName') || !$request->request->get('lastName') || !$request->request->get('pesel')) {
+            return new JsonResponse([
+                'message' => 'PUT wymaga wszystkich pól',
+            ], 400);
         }
         
         $form = $this->createForm(new UserDetailsClientType(), $client);
@@ -151,13 +162,41 @@ class ClientController extends FOSRestController implements ClassResourceInterfa
             return $this->handleView($view);
         //}
         
-        throw new \Exception('form error', 400);
+        return $this->response('Błędne dane z formularza', 400, $form); 
     }
-//    
-//    public function patchAction($id)
-//    {        
-//        
-//    }
+    
+    public function patchAction($id)
+    {        $client = $this->getDoctrine()
+            ->getRepository('AppBundle:UserDetailsClient')
+            ->findOneBy([
+                'id' => $id,
+            ]);
+        
+        if (!$client) {
+            return new JsonResponse([
+                'message' => 'Klient o zadanym ID nie istnieje',
+            ], 404);
+        }
+        
+        $form = $this->createForm(new UserDetailsClientType(), $client);
+        
+        $form->handleRequest($request);
+        
+        //if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($client);
+            $em->flush();
+            
+            $view = $this->view($client, 200);
+
+            return $this->handleView($view);
+        //}
+        
+        return new JsonResponse([
+            'message' => 'Błędne dane z formularza',
+            'errors' => [],
+        ], 400);        
+    }
     
     /**
      * @ApiDoc(
@@ -183,7 +222,9 @@ class ClientController extends FOSRestController implements ClassResourceInterfa
             ]);
         
         if (!$client) {
-            throw new NotFoundHttpException();
+            return new JsonResponse([
+                'message' => 'Klient o zadanym ID nie istnieje',
+            ], 404);
         }
         
         $em = $this->getDoctrine()->getManager();
@@ -195,4 +236,6 @@ class ClientController extends FOSRestController implements ClassResourceInterfa
         
         return $this->handleView($view);
     }
+    
+    
 }
